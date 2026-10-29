@@ -18,30 +18,27 @@ O Infinity Forever é um **hub local** para **registrar, testar e acompanhar** A
 
 ## Para quem foi feito
 
-Foi pensado e desenhado para **pessoas que usam IAs agênticas do Hermes (ou qualquer CLI)** e que **não conseguem usar seus 9routers ou OmniRouter por falta de compatibilidade**. Quem depende dessas ferramentas para rotear entre provedores acaba travado; com o Infinity Forever, o fallback continua possível — só que de forma manual, através de um hub local que mostra, com clareza, o que está vivo e o que está morto.
+Foi pensado e desenhado para **pessoas que usam IAs agênticas do Hermes (ou qualquer CLI)** no celular (embora tambem seje compatível em PCs e etc)! E que **não conseguem usar seus 9routers ou OmniRouter por falta de compatibilidade**. Quem depende dessas ferramentas para rotear entre provedores acaba travado; com o Infinity Forever, o fallback continua possível — só que de forma manual, através de um hub local que mostra, com clareza, os modelos e provedores online ou offline. 
 
-Também funciona em **PCs, notebooks e ambientes locais em geral** (Linux, macOS, Windows). É essencialmente um app de navegador + Node rodando na sua máquina.
+Também funciona em **PCs, notebooks e ambientes locais em geral** (Linux, macOS, Windows). É essencialmente um app de navegador + Node rodando na sua máquina! 
 
 ## Privacidade — app 100% local
 
 - **Nenhuma chave ou dado seu sai da sua máquina.** O app roda 100% localmente (Node + frontend em localhost).
 - Sua **chave de API**, endpoint e modelos ficam **apenas no seu navegador** (localStorage) e no arquivo local `server/data.json` (que está no `.gitignore` para nunca ser versionado).
 - O proxy é local; **não há telemetria, cloud, multi-tenancy ou servidor remoto.** O app não cruza seus dados em nenhum servidor.
-- O backend escuta em `0.0.0.0` apenas para permitir acesso na rede local (ex.: abrir no celular). Se a sua máquina estiver exposta à internet, abra as portas com cuidado: **não há autenticação** nessa versão.
-
-> **Importante:** se você publicar esta instância, mantenha `server/data.json` fora do controle de versão. Ele contém chaves de API em claro.
+- O backend escuta em `0.0.0.0` apenas para permitir acesso na rede local (ex.: abrir no celular). Se a sua máquina estiver exposta à internet, abra as portas com cuidado: **não há autenticação** nessa versão. E o processamento do app é todo local também. Ou seja, 100% de privacidade. 
 
 ## Funcionalidades
 
-- Catálogo de **85+ provedores** com links oficiais para "Gerar API key".
-- Adicionar provedor **colocando só a chave**; endpoint e modelos são detectados automaticamente.
-- **Testes no servidor (sem CORS)**: texto "oi" para cada modelo + medição de latência.
-- Bolinhas de status coloridas: verde (online), amarelo (rate limit / HTTP 429), vermelho (offline).
-- **Testar um modelo**, **um provedor** ou **Testar tudo** com progresso real 0-100%.
+- Catálogo de **85+ provedores** com links oficiais para "Gerar API key" tudo de forma completamente fácil para você.
+- Adicionar provedor **colocando só a chave**; endpoint e modelos são detectados automaticamente, independentemente do provedor, apenas a API já basta.
+- **Testes no servidor (sem CORS)**: É rodado um script de teste no app (com o seu consentimento e autonomia) de "oi" ao modelo em questão, e ele respondendo, já mede a latência + se esta online ou offline. 
+- **Testar um modelo**, **um provedor** ou **Testar tudo** com progresso real 0-100%: Se quiser testar 1 model? Dá. Testar 1 provedor? Dá. Testar TUDO? DÁ TÁMBEM! 
 - **Hub "Seus modelos"**: pílulas dos provedores lado a lado (clique abre a lista); copia, teste e filtragem; badges Vision/Thinking; status explicável.
-- Dashboard de **Consumo automático** (28 dias) com input/output/total + ranking de provedores e modelos usados (20s auto).
+- Dashboard de **Consumo automático** (28 dias) com input/output/total + ranking de provedores e modelos usados (20s auto). (O rastreio de uso pode haver erros, se caso houver, por favor informar issue) 
 - Endpoint de gateway OpenAI-compatible em `http://localhost:3001/v1/chat/completions`, grava consumo automaticamente (shell local).
-- Persistência local 100%, sem login.
+- Persistência local 100%, sem login, sem email, sem cadastro e sem senhas. 
 
 ## Requisitos
 
@@ -92,8 +89,8 @@ Para usar Ollama Cloud: modelo de saída `https://ollama.com/v1`, e API key de h
 - **Backend offline**: suba `npm run start:api` em terminal separado.
 - **Porta ocupada**: libere portas 3000/3001 e 3099 (mock).
 - **Sem modelos detectados**: use endpoint manual (Ajustes avançados → Endpoint) e adicione modelos manualmente; detecção via GET /models não é obrigatória.
-- **Rate limit**: bolinhas amarelas e avisos na UI; aguarde o reset (provider) ou use plano premium.
-- **Visão não detectada**: envio de imagem é feito na hora do teste para validar 429/erro; modelos compatíveis reais serão detectados.
+- **Rate limit**: bolinhas amarelas e avisos na UI; aguarde o reset (provider) ou use plano premium. Ou simplesmente o provedor limitou o modelo para não ser usado. 
+- **Visão não detectada**: envio de imagem é feito na hora do teste para validar 429/erro; modelos compatíveis reais serão detectados automaticamente. 
 
 ## Tests & verificação
 
@@ -115,7 +112,7 @@ MIT — livre para uso, fork, aprendizado. Sem afiliação com Groq/OpenAI/Anthr
 
 Essa ferramenta foi feita puramente para solucionar a dor de quem está usando ferramentas pra modelos de IA fallback que está tendo repetidos erros de códigos quebrados. Por meio dela, você consegue fazer um fallback **manualmente**: basta colar a chave de API de seus provedores que o software identifica modelos, endpoints, provedores funcionando, offline, etc.
 
-Tudo foi desenvolvido e facilitado pelo autor para que você possa usar. Considere dar uma estrela se gostar da ferramenta.
+Tudo foi desenvolvido e facilitado com carinho por mim para que você possa usar. Considere dar uma estrela se gostar da ferramenta! :) 
 
 ## Autor e origem
 
@@ -124,4 +121,4 @@ Tudo foi desenvolvido e facilitado pelo autor para que você possa usar. Conside
 
 ---
 
-**Early access disclaimer:** como o projeto foi vibecodado, podem existir rough edges (UI, testes, naming). Issues e PRs são bem-vindos — o objetivo é manter o app simples, local e transparente.
+**Early access disclaimer:** como o projeto foi vibecodado, podem existir rough edges (UI, testes, naming). Issues e PRs são bem-vindos — o objetivo é manter o app simples, local e transparente. E mais uma vez, obrigado por usar meu app! 
