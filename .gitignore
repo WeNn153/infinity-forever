@@ -1,0 +1,83 @@
+# Dependencies
+node_modules/
+/pnp/
+.pnp.js
+
+# Testing
+coverage/
+
+# Production build
+build/
+*.lzw
+*.zip
+*.flv
+*.avi
+*.mpg
+*.mpeg
+*.mkv
+*.mp4
+*.webm
+*.wav
+*.mp3
+*.mid
+*.midi
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.ico
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Logs
+logs
+*.log
+runtime.log
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Misc
+tmp/
+temp/
+.backups/
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+
+# Package files
+*.tgz
+*.war
+*.jar
+
+# OS-generated files
+Desktop.ini
+._*
+
+# Webpack stats
+stats.json
+
+# Dados de runtime do backend (contém API keys — nunca versionar)
+server/data.json
+server/data.json.tmp
+
+# Referências locais e sensíveis (não publicar)
