@@ -21,13 +21,6 @@ build/
 *.mp3
 *.mid
 *.midi
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.bmp
-*.tiff
-*.ico
 *.exe
 *.dll
 *.so
