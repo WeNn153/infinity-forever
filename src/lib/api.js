@@ -1,10 +1,12 @@
 /* Cliente do backend local (porta 3001 via proxy do dev server). */
 
+const API_BASE = `${window.location.protocol}//${window.location.hostname}:3001`;
+
 async function request(path, options = {}, timeoutMs = 60000) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(path, {
+    const res = await fetch(API_BASE + path, {
       headers: { 'Content-Type': 'application/json' },
       ...options,
       signal: controller.signal,
